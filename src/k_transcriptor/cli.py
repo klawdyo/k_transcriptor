@@ -46,7 +46,7 @@ GPU_PACKAGES = ["nvidia-cublas-cu12", "nvidia-cudnn-cu12"]
 def _utf8() -> None:
     for stream in (sys.stdout, sys.stderr):
         try:
-            stream.reconfigure(encoding="utf-8")
+            stream.reconfigure(encoding="utf-8", line_buffering=True)
         except Exception:
             pass
 
