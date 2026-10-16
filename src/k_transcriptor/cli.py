@@ -23,6 +23,22 @@ from pathlib import Path
 
 from . import extract_id, paths
 
+
+# mensagens automáticas do argparse em português (o módulo as busca por gettext em inglês)
+_PTBR = {
+    "usage: ": "uso: ", "positional arguments": "argumentos posicionais", "options": "opções", "optional arguments": "opções",
+    "show this help message and exit": "mostra esta ajuda e sai",
+    "%(prog)s: error: %(message)s\n": "%(prog)s: erro: %(message)s\n",
+    "the following arguments are required: %s": "os argumentos a seguir são obrigatórios: %s",
+    "unrecognized arguments: %s": "argumentos não reconhecidos: %s",
+    "expected one argument": "esperava um argumento", "expected at least one argument": "esperava ao menos um argumento",
+    "argument %(argument_name)s: %(message)s": "argumento %(argument_name)s: %(message)s",
+    "invalid %(type)s value: %(value)r": "valor inválido para %(type)s: %(value)r",
+    "invalid choice: %(value)r (choose from %(choices)s)": "opção inválida: %(value)r (escolha entre %(choices)s)",
+    "invalid choice: %(value)r (choose from %(choices)s)": "opção inválida: %(value)r (escolha entre %(choices)s)",
+}
+argparse._ = lambda text: _PTBR.get(text, text)
+
 BASE_PACKAGES = ["yt-dlp", "faster-whisper", "youtube-transcript-api"]
 GPU_PACKAGES = ["nvidia-cublas-cu12", "nvidia-cudnn-cu12"]
 
